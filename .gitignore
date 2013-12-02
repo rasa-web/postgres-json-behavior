@@ -1,0 +1,9 @@
+/vendor
+composer.phar
+composer.lock
+*.swp
+*.swo
+TAGS
+.#*
+/.vagrant
+/.idea
