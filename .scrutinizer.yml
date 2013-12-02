@@ -3,7 +3,7 @@ filter:
         - 'vendor/*'
         - 'app/*'
         - 'web/*'
-	- 'src/templates
+        - 'src/templates/*'
         
 before_commands:
     - composer install
