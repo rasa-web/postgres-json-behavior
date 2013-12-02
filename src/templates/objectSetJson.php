@@ -40,5 +40,6 @@
             }
         }
         $current = $data;
+        $this->set<?php echo ucfirst($columnName) ?>($this-><?php echo $columnName ?>AsArray);
         return $this;
     }
