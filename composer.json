@@ -4,7 +4,6 @@
     "keywords": [ "propel", "behavior", "postgresql", "postgres", "json" ],
     "license": "MIT",
     "require": {
-        "php": ">=5.4.0",
         "propel/propel1": "~1"
     },
     "authors": [

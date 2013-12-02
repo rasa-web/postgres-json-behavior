@@ -1,5 +1,9 @@
 postgres-json-behavior
 ======================
+[![Build Status](https://travis-ci.org/rasa-web/postgres-json-behavior.png?branch=master)](https://travis-ci.org/rasa-web/postgres-json-behavior)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/rasa-web/postgres-json-behavior/badges/quality-score.png?s=c68b08dde09423de76f8b365b3829e87551fbe33)](https://scrutinizer-ci.com/g/rasa-web/postgres-json-behavior/)
+[![Code Coverage](https://scrutinizer-ci.com/g/rasa-web/postgres-json-behavior/badges/coverage.png?s=38e67ccbc8098ce7d1cd0777b546ddb67f5a30af)](https://scrutinizer-ci.com/g/rasa-web/postgres-json-behavior/)
+
 
 PostgresSql JSON behavior for propel, This behavior only support postgres 9.3 and (maybe) upper version.
 
