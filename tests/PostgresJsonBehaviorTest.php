@@ -73,6 +73,8 @@ EOF;
         $foo->setJson1Path('test.lower', 'new2');
         $this->assertEquals(array('key' => 'value', 'test' => array('lower' => 'new2')), $foo->getJson1());
 
+        $foo->setJson2Path('key.lower', 'new');
+        $this->assertEquals(array('key' => array('lower' => 'new')), $foo->getJson2());
     }
 
     /**

@@ -12,7 +12,12 @@
             $property = "{$columnName}AsArray";
             if (null === $this->$property && null !== $this->$columnNameUnderscore) {
                 $jsonArray = json_decode($this->{$columnNameUnderscore}, true);
+                if (!$jsonArray) {
+                    $jsonArray = array();
+                }
                 $this->$property = $jsonArray;
+            } elseif (null === $this->$columnNameUnderscore) {
+                $this->$property = array();
             }
         }
     }
