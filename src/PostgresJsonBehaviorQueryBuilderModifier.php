@@ -39,7 +39,8 @@ class PostgresJsonBehaviorQueryBuilderModifier
                         'tableName' => $this->behavior->getTable()->getName(),
                         'columnName' => lcfirst($columnName),
                         'columnNameUnderscore' => $columnNameUnderscore,
-                        'exception' => $this->behavior->getParameter('exception_on_not_found')
+                        'exception' => $this->behavior->getParameter('exception_on_not_found'),
+                        'phpTableName' => $this->behavior->getTable()->getPhpName(),
                     )
                 )
             );

@@ -9,7 +9,7 @@
         $this-><?php echo $columnName ?>AsArray = $data;
         $this-><?php echo $columnNameUnderscore ?> = json_encode($data);
         // There is no way supported by propel (in my knowledge) that we can set part of a column as modified.
-        $this->modifiedColumns[] = <?php echo ucfirst($tableName) ?>Peer::<?php echo strtoupper($columnNameUnderscore) ?>;
+        $this->modifiedColumns[] = <?php echo $phpTableName ?>Peer::<?php echo strtoupper($columnNameUnderscore) ?>;
         return $this;
     }
 

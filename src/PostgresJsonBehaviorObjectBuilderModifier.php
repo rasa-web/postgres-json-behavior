@@ -86,6 +86,7 @@ class PostgresJsonBehaviorObjectBuilderModifier
 
         return array(
             'tableName' => $this->behavior->getTable()->getName(),
+            'phpTableName' => $this->behavior->getTable()->getPhpName(),
             'columnNames' => $newName,
             'exception' => $this->behavior->getParameter('exception_on_not_found')
         );
