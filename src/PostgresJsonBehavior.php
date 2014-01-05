@@ -9,7 +9,7 @@ class PostgresJsonBehavior extends Behavior
     public function modifyTable()
     {
         foreach (explode(',', $this->getParameter('column_names')) as $column) {
-            if ($this->getTable()->containsColumn($column)) {
+            if ($this->getTable()->hasColumn($column)) {
                 $columnObject = $this->getTable()->getColumn($column);
                 $columnObject->getDomain()->replaceSqlType('json');
             }
