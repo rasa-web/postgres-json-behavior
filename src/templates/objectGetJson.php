@@ -1,3 +1,4 @@
+
     /**
      * Get the <?php echo ucfirst($columnName) ?> column value.
      * use dot (.) for path inside json like name.middle for {"name":{"middle":"value"}}
@@ -22,8 +23,6 @@
         while ($p = array_shift($pathArray)) {
             if (is_array($current) && array_key_exists($p, $current)) {
                 $current = & $current[$p];
-            } elseif (count($pathArray) == 0) {
-                break;
             } else {
                 <?php
                 if ($exception) {
