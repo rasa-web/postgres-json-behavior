@@ -52,13 +52,16 @@ EOF;
     public function testAccessMethods()
     {
         $foo = new Foo();
-        $foo->setJson1(array('key' => 'value'));
+        $foo->setJson1(array('key' => 'value', 'another' => array()));
 
-        $this->assertEquals(array('key' => 'value'), $foo->getJson1());
+        $this->assertEquals(array('key' => 'value', 'another' => array()), $foo->getJson1());
         $this->assertEquals('value', $foo->getJson1('key'));
+        $this->assertEquals(array(), $foo->getJson1('another', false));
+        $this->assertEquals(false, $foo->getJson1('not', false));
 
         $foo->setJson2(array('key' => array('lower' => 'test')));
         $this->assertEquals('test', $foo->getJson2('key.lower'));
+        $this->assertEquals(false, $foo->getJson1('not', false));
     }
 
 
