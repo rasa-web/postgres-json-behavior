@@ -19,7 +19,7 @@
     * @param string $path path to change or append
     * @param string $data data to set
     *
-    * @return The   current object (for fluent API support)
+    * @return Current object (for fluent API support)
     */
     public function set<?php echo ucfirst($columnName) ?>Path($path, $data)
     {
@@ -40,6 +40,37 @@
             }
         }
         $current = $data;
+        $this->set<?php echo ucfirst($columnName) ?>($this-><?php echo $columnName ?>AsArray);
+        return $this;
+    }
+
+    /**
+    * Append partial of a json
+    *
+    * @param string $path path to change or append
+    * @param string $data data to set
+    *
+    * @return Current object (for fluent API support)
+    */
+    public function append<?php echo ucfirst($columnName) ?>Path($path, $data)
+    {
+        if (!$this-><?php echo $columnName ?>AsArray || !is_array($this-><?php echo $columnName ?>AsArray)) {
+            $this->initJsonFields();
+        }
+
+        $pathArray = explode('.', $path);
+        $current = &$this-><?php echo $columnName ?>AsArray;
+        while ($p = array_shift($pathArray)) {
+            if (is_array($current) && array_key_exists($p, $current)) {
+                $current = &$current[$p];
+            } elseif (!is_array($current)) {
+                throw new PropelException("Can not set $path in this json");
+            } else {
+                $current[$p] = array();
+                $current = &$current[$p];
+            }
+        }
+        $current[] = $data;
         $this->set<?php echo ucfirst($columnName) ?>($this-><?php echo $columnName ?>AsArray);
         return $this;
     }
