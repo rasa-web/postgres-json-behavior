@@ -9,6 +9,7 @@ class PostgresJsonBehaviorQueryBuilderModifier
      * @var PostgresJsonBehavior
      */
     protected $behavior;
+    protected $builder;
 
     /**
      * constructor
@@ -20,6 +21,10 @@ class PostgresJsonBehaviorQueryBuilderModifier
         $this->behavior = $behavior;
     }
 
+    public function queryMethods($builder)
+    {
+        $this->builder = $builder;
+    }
 
     /**
      * {@inheritdoc}
@@ -36,6 +41,7 @@ class PostgresJsonBehaviorQueryBuilderModifier
                 $this->behavior->renderTemplate(
                     'queryFilterByJsonKey',
                     array(
+                        'queryClassName' => $this->builder->getStubQueryBuilder()->getClassname(),
                         'tableName' => $this->behavior->getTable()->getName(),
                         'columnName' => lcfirst($columnName),
                         'columnNameUnderscore' => $columnNameUnderscore,

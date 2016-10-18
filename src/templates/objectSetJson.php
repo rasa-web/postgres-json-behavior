@@ -2,7 +2,7 @@
     * Set the value of [<?php echo $columnName ?>] column.
     *
     * @param  array $array new value
-    * @return The   current object (for fluent API support)
+    * @return <?php echo $phpTableName ?>
     */
     public function set<?php echo ucfirst($columnName) ?>(array $data = array())
     {
@@ -19,7 +19,7 @@
     * @param string $path path to change or append
     * @param string $data data to set
     *
-    * @return Current object (for fluent API support)
+    * @return <?php echo $phpTableName ?>
     */
     public function set<?php echo ucfirst($columnName) ?>Path($path, $data)
     {
@@ -50,7 +50,7 @@
     * @param string $path path to change or append
     * @param string $data data to set
     *
-    * @return Current object (for fluent API support)
+    * @return <?php echo $phpTableName ?>
     */
     public function append<?php echo ucfirst($columnName) ?>Path($path, $data)
     {
