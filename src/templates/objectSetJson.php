@@ -7,14 +7,6 @@
     public function set<?php echo ucfirst($columnName) ?>(array $data = array())
     {
         $this-><?php echo $columnName ?>AsArray = $data;
-        $utf8Encoder = function (&$item, $key)
-        {
-            if (is_string($item)) {
-                $item = utf8_encode($item);
-            }
-        };
-
-        array_walk_recursive($data, $utf8Encoder);
         $this-><?php echo $columnNameUnderscore ?> = json_encode($data, JSON_UNESCAPED_UNICODE);
         // There is no way supported by propel (in my knowledge) that we can set part of a column as modified.
         $this->modifiedColumns[] = <?php echo $phpTableName ?>Peer::<?php echo strtoupper($columnNameUnderscore) ?>;
