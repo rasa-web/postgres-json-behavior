@@ -9,7 +9,9 @@
         $this-><?php echo $columnName ?>AsArray = $data;
         $utf8Encoder = function (&$item, $key)
         {
-            $item = utf8_encode($item);
+            if (is_string($item)) {
+                $item = utf8_encode($item);
+            }
         };
 
         array_walk_recursive($data, $utf8Encoder);
